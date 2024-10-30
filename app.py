@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
-app.config['WTF_CSRF_ENABLED'] = true   
+app.config['WTF_CSRF_ENABLED'] = True 
 
 database = []
 
