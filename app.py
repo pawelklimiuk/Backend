@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
+csrf = CSRFProtect()
+csrf.init_app(app)
 
 database = []
 
