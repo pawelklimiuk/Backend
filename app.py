@@ -1,7 +1,8 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, CSRFProtect  
 
 app = Flask(__name__)
-app.config['WTF_CSRF_ENABLED'] = True 
+csrf = CSRFProtect()
+csrf.init_app(app) 
 
 database = []
 
