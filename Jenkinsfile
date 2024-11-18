@@ -1,7 +1,7 @@
-def imageName="192.168.44.44:8082/docker_registry/backend"
+def imageName="pawelk123456/backend"
 def dockerTag=""
-def dockerRegistry="https://192.168.44.44:8082"
-def registryCredentials="artifactory"
+def dockerRegistry=""
+def registryCredentials="dockerhub"
 
 
 pipeline {
@@ -61,6 +61,9 @@ pipeline {
         always {
             junit testResults: "test-results/*.xml"
             cleanWs()
+        }
+        success {
+            build job: 'app_of_apps', parameters: [ string(name: 'backendDockerTag', value: "$dockerTag")], wait: false
         }
     }
 }
