@@ -6,7 +6,7 @@ def registryCredentials="dockerhub"
 
 pipeline {
     agent {
-        any //  label 'agent'
+        label any //  label 'agent'
     }
     
     environment {
