@@ -39,7 +39,8 @@ pipeline {
         stage('Budujemy kontener z aplikacja') {
             steps {
                 script {
-                    dockerTag = "RC-${env.BUILD_ID}"
+                    // dockerTag = "RC-${env.BUILD_ID}"
+                    dockerTag = "RC-${env.BUILD_ID}.${env.GIT_COMMIT.take(7)}"
                     applicationImage = docker.build("$imageName:$dockerTag")
                 }
             }
