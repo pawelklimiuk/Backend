@@ -46,7 +46,7 @@ pipeline {
             }
         }
         
-        stage ('Wypychamy image do artifactory do docker registry') {
+        stage ('Wypychamy image do docker registry') {
             steps {
                 script {
                     docker.withRegistry("$dockerRegistry", "$registryCredentials") {
