@@ -63,7 +63,7 @@ pipeline {
                 dir('ArgoCD') {
                     withCredentials([gitUsernamePassword(credentialsId: 'git', gitToolName: 'Default')]) {
                         git branch: 'main', url: 'https://github.com/pawelklimiuk/ArgoCD'
-                        sh """ cd backend
+                        sh """ cd frontend
                         sed -i "s#$imageName.*#$imageName:$dockerTag#g" deployment.yaml
                         git commit -am "Set new $dockerTag tag."
                         git push origin main
